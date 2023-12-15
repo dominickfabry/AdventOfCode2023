@@ -1,6 +1,58 @@
-calibration_value = 0
-File.foreach("../text_inputs/day_1_text.txt") do |line|
-  num_arr = line.gsub(/\D/, "").chars
-  calibration_value += [num_arr.first, num_arr.last].join.to_i
+# frozen_string_literal: true
+
+# gem install colorize      if needed
+require 'colorize'
+CHARS_TO_INTS = {
+  'one' => 1,
+  'two' => 2,
+  'three' => 3,
+  'four' => 4,
+  'five' => 5,
+  'six' => 6,
+  'seven' => 7,
+  'eight' => 8,
+  'nine' => 9
+}.freeze
+@calibration_value = 0
+
+# START OF PART ONE
+
+def part_one
+  File.foreach('../text_inputs/day_one/day_one_text.txt') do |line|
+    num_arr = line.gsub(/\D/, '')
+    @calibration_value += [num_arr[0], num_arr[num_arr.length - 1]].join.to_i
+  end
+  @calibration_value
 end
-puts calibration_value
+
+# END OF PART ONE
+
+# START OF PART TWO
+
+def part_two
+  # Some Code
+end
+
+def validate_number_word
+  # Some Code
+end
+
+# END OF PART TWO
+
+VERSIONS = %w[part_one part_two part_three].freeze
+version = 'no version'
+until VERSIONS.include?(version)
+  puts "Please enter which version to use... #{'part_one'.green} | #{'part_two'.light_cyan} | #{'part_three'.magenta} "
+  version = gets.chomp
+end
+answer =
+  case version
+  when 'part_one'
+    part_one
+  when 'part_two'
+    part_two
+  when 'part_three'
+    part_three
+  end
+
+p "Your Answer is #{answer}"
