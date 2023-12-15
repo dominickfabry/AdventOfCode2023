@@ -12,7 +12,7 @@ CUBE_INVENTORY = { 'red' => 12, 'green' => 13, 'blue' => 14 }.freeze
 @game_id_sum = 0
 
 def part_one
-  File.foreach('../text_inputs/day_2_text.txt') do |line|
+  File.foreach('../text_inputs/day_two/day_two_text.txt') do |line|
     valid_game = true
     game_id = line.match(/Game (\d+)/)
     CUBE_INVENTORY.each_key do |color|
@@ -27,7 +27,7 @@ end
 VERSIONS = %w[part_one part_two part_three].freeze
 version = 'no version'
 until VERSIONS.include?(version)
-  puts "Please enter which version to use... #{'part_one'.green} | #{'part_two'.light_cyan} | #{'part_three'.magenta} "
+  puts "Please enter which version to use... #{'part_one'.green} | #{'part_two'.light_cyan} | #{'part_three'.magenta}: "
   version = gets.chomp
 end
 answer =

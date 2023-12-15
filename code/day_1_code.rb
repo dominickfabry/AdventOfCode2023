@@ -42,7 +42,7 @@ end
 VERSIONS = %w[part_one part_two part_three].freeze
 version = 'no version'
 until VERSIONS.include?(version)
-  puts "Please enter which version to use... #{'part_one'.green} | #{'part_two'.light_cyan} | #{'part_three'.magenta} "
+  puts "Please enter which version to use... #{'part_one'.green} | #{'part_two'.light_cyan} | #{'part_three'.magenta}: "
   version = gets.chomp
 end
 answer =
