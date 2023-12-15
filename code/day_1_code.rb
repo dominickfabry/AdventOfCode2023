@@ -39,7 +39,7 @@ def part_two
         num_arr << char.to_i
       else
         num = valid_word?(line, index)
-        num_arr << CHARS_TO_INTS[num] unless num.nil?
+        num_arr << num unless num.nil?
       end
     end
     @calibration_value += [num_arr[0], num_arr[num_arr.length - 1]].join.to_i
@@ -53,7 +53,7 @@ def valid_word?(line, index)
     break if line[index].nil?
 
     cur_word += line[index]
-    return cur_word if CHARS_TO_INTS.keys.include?(cur_word)
+    return CHARS_TO_INTS[cur_word] if CHARS_TO_INTS.keys.include?(cur_word)
 
     index += 1
   end

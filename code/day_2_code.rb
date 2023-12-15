@@ -8,6 +8,8 @@ require 'colorize'
 # Round Ids are deliminated by a colan
 # Different cubes are deliminated by a comma during a round
 
+# START OF PART ONE
+
 CUBE_INVENTORY = { 'red' => 12, 'green' => 13, 'blue' => 14 }.freeze
 @game_id_sum = 0
 
@@ -23,6 +25,25 @@ def part_one
   end
   @game_id_sum
 end
+
+# END OF PART ONE
+
+# START OF PART TWO
+CUBE_COLORS = %w[red blue green].freeze
+@cube_power_sum = 0
+
+def part_two
+  File.foreach('../text_inputs/day_two/day_two_text.txt') do |line|
+    cube_counts = []
+    CUBE_COLORS.each do |color|
+      cube_counts << line.scan(/(\d+) #{color}/).map { |nums| nums[0].to_i }.max
+    end
+    @cube_power_sum += cube_counts.inject(:*)
+  end
+  @cube_power_sum
+end
+
+# END OF PART TWO
 
 VERSIONS = %w[part_one part_two part_three].freeze
 version = 'no version'
