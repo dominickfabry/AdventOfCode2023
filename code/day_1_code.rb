@@ -8,7 +8,7 @@ require 'colorize'
 # START OF PART ONE
 
 def part_one
-  File.foreach('../text_inputs/day_one/day_one_text.txt') do |line|
+  File.foreach('../text_inputs/day_1_text.txt') do |line|
     num_arr = line.gsub(/\D/, '')
     @calibration_value += [num_arr[0], num_arr[num_arr.length - 1]].join.to_i
   end
@@ -32,7 +32,7 @@ CHARS_TO_INTS = {
 }.freeze
 
 def part_two
-  File.foreach('../text_inputs/day_one/day_one_text.txt') do |line|
+  File.foreach('../text_inputs/day_1_text.txt') do |line|
     num_arr = []
     line.chars.each.with_index do |char, index|
       if char.to_i.to_s == char

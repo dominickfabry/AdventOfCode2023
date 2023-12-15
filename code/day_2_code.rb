@@ -14,7 +14,7 @@ CUBE_INVENTORY = { 'red' => 12, 'green' => 13, 'blue' => 14 }.freeze
 @game_id_sum = 0
 
 def part_one
-  File.foreach('../text_inputs/day_two/day_two_text.txt') do |line|
+  File.foreach('../text_inputs/day_2_text.txt') do |line|
     valid_game = true
     game_id = line.match(/Game (\d+)/)
     CUBE_INVENTORY.each_key do |color|
@@ -33,7 +33,7 @@ CUBE_COLORS = %w[red blue green].freeze
 @cube_power_sum = 0
 
 def part_two
-  File.foreach('../text_inputs/day_two/day_two_text.txt') do |line|
+  File.foreach('../text_inputs/day_2_text.txt') do |line|
     cube_counts = []
     CUBE_COLORS.each do |color|
       cube_counts << line.scan(/(\d+) #{color}/).map { |nums| nums[0].to_i }.max
